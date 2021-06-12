@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: fleetman-mongo-local-storage
+spec:
+  capacity:
+    storage: 20Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  # persistentVolumeReclaimPolicy: retain
+  storageClassName: mylocalstorage
+  hostPath:
+    path: /mnt/mongodb
+    type: DirectoryOrCreate
